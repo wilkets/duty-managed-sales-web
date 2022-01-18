@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import styled from 'styled-components';
 import colors from 'config/colors';
 import { ButtonLargeText, Subtitle, Body2, Body3 } from 'config/typography';
@@ -14,15 +15,37 @@ import benefitsImg from 'assets/images/benefits.png';
 import membershipImg from 'assets/images/membership.png';
 import minusIcon from 'assets/images/minus.png';
 import plusIcon from 'assets/images/plus.png';
+import footerBG from 'assets/images/footerbg.png';
 import { cloneDeep } from 'lodash';
+import Swal from 'sweetalert2';
 import Header from './components/Header';
+import Footer from './components/Footer';
+
+emailjs.init('user_b2xRxLSUW6uT0UYDtFmIA');
 
 export default () => {
   const [featureSelected, setFeatureSelected] = useState();
   const [faqsList, setFaqsList] = useState(faqs);
+  const [subscriber, setSubscriber] = useState('');
+  const defaultContact = {
+    name: '',
+    email: '',
+    message: '',
+  };
+  const [contactInfo, setContactInfo] = useState(defaultContact);
+  const [loading, setLoading] = useState(false);
 
   const openFeature = (item) => {
     setFeatureSelected(item);
+  };
+
+  const onInputContactForm = (e) => {
+    const { value, id } = e.target;
+    setContactInfo({ ...contactInfo, [id]: value });
+  };
+
+  const scrollToContact = () => {
+    document.getElementById('contact_form').scrollIntoView();
   };
 
   const toggleFAQ = (x) => {
@@ -33,6 +56,108 @@ export default () => {
       return { ...faq };
     });
     setFaqsList(updatedList);
+  };
+
+  const validateEmail = (email) =>
+    String(email)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+
+  const showError = (msg) => {
+    Swal.fire({
+      title: 'Error!',
+      text: msg,
+      icon: 'error',
+      confirmButtonText: 'Go Back',
+      showClass: {
+        popup: 'animate__animated animate__fadeIn animate__faster',
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOut animate__faster',
+      },
+      customClass: {
+        confirmButton: 'btn-custom',
+      },
+    }).then(() => setLoading(false));
+  };
+
+  const showSuccess = (msg) => {
+    Swal.fire({
+      title: 'Success!',
+      text: msg,
+      icon: 'success',
+      confirmButtonText: 'Go Back',
+      showClass: {
+        popup: 'animate__animated animate__fadeIn animate__faster',
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOut animate__faster',
+      },
+      customClass: {
+        confirmButton: 'btn-custom',
+      },
+    }).then(() => {
+      setLoading(false);
+      setSubscriber('');
+    });
+  };
+
+  const sendSubscription = async () => {
+    setLoading(true);
+
+    if (!validateEmail(subscriber)) {
+      showError('Please enter a valid email address.');
+    } else {
+      try {
+        const res = await emailjs.send('gmail_service', 'email_subscription', {
+          email: subscriber,
+        });
+        if (res) {
+          showSuccess(
+            'Thank you for showing interest in our app.\nWe will keep you updated.'
+          );
+        } else {
+          showError(
+            'An error occured.\nPlease check your internet connection.'
+          );
+        }
+      } catch (e) {
+        showError('An error occured.\nPlease check your internet connection.');
+      }
+    }
+  };
+
+  const submitContactForm = async () => {
+    setLoading(true);
+
+    if (!validateEmail(contactInfo.email) || !contactInfo.name) {
+      if (!contactInfo.name) {
+        showError('Please enter your name.');
+      } else {
+        showError('Please enter a valid email address.');
+      }
+    } else {
+      try {
+        const res = await emailjs.send(
+          'gmail_service',
+          'contact_form',
+          contactInfo
+        );
+        if (res) {
+          showSuccess(
+            'Thank you for your inquiry!\nWe will get back to you as soon as possible.'
+          );
+        } else {
+          showError(
+            'An error occured.\nPlease check your internet connection.'
+          );
+        }
+      } catch (e) {
+        showError('An error occured.\nPlease check your internet connection.');
+      }
+    }
   };
 
   return (
@@ -54,8 +179,14 @@ export default () => {
           </SubTag>
           <BottomTag>
             <NewsletterContainer>
-              <input type="text" placeholder="Add your email here..." />
-              <NewLetterBtn>
+              <input
+                type="text"
+                value={subscriber}
+                placeholder="Add your email here..."
+                onChange={({ target }) => setSubscriber(target.value)}
+                disabled={loading}
+              />
+              <NewLetterBtn onClick={sendSubscription} disabled={loading}>
                 <ButtonLargeText color="white">Keep Me Updated</ButtonLargeText>
               </NewLetterBtn>
             </NewsletterContainer>
@@ -126,7 +257,7 @@ export default () => {
           </AppImgSection>
         </Container>
 
-        <AboutSection>
+        <AboutSection id="about_section">
           <Container>
             <AboutTop>
               <AboutTopLeft>
@@ -252,7 +383,7 @@ export default () => {
                 business.
               </Body3>
               <ActionContainer>
-                <GreenBtn>
+                <GreenBtn onClick={scrollToContact}>
                   <ButtonLargeText color="white">Contact Us</ButtonLargeText>
                 </GreenBtn>
                 <WhiteBtn>
@@ -290,6 +421,58 @@ export default () => {
             ))}
           </FAQList>
         </FAQSection>
+        <ContactSection id="contact_form">
+          <ContactContainer>
+            <ContactInner>
+              <h5>Have another question? Let’s talk!</h5>
+              <FormRow>
+                <FormCol>
+                  <InputContainer>
+                    <label htmlFor="name">Your Name *</label>
+                    <input
+                      type="text"
+                      id="name"
+                      autoComplete="no"
+                      value={contactInfo.name}
+                      disabled={loading}
+                      onChange={(e) => onInputContactForm(e)}
+                    />
+                  </InputContainer>
+                  <InputContainer>
+                    <label htmlFor="email">Your Email *</label>
+                    <input
+                      type="text"
+                      id="email"
+                      value={contactInfo.email}
+                      disabled={loading}
+                      onChange={(e) => onInputContactForm(e)}
+                    />
+                  </InputContainer>
+                </FormCol>
+                <FormCol>
+                  <InputContainer>
+                    <label htmlFor="message">Your Message</label>
+                    <textarea
+                      id="message"
+                      autoComplete="none"
+                      value={contactInfo.message}
+                      disabled={loading}
+                      onChange={(e) => onInputContactForm(e)}
+                    />
+                  </InputContainer>
+                </FormCol>
+              </FormRow>
+              <ContactBtnContainer>
+                <WhiteBtn onClick={submitContactForm} disabled={loading}>
+                  <ButtonLargeText color={colors.infoMain}>
+                    Send
+                  </ButtonLargeText>
+                </WhiteBtn>
+              </ContactBtnContainer>
+            </ContactInner>
+          </ContactContainer>
+        </ContactSection>
+        <Footer />
       </FeaturesSection>
     </div>
   );
@@ -324,6 +507,7 @@ const HeroMap = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center left;
     pointer-events: none;
   }
 `;
@@ -388,6 +572,11 @@ const NewLetterBtn = styled.button`
 
   &:hover {
     opacity: 0.86;
+  }
+
+  &:disabled {
+    opacity: 0.86;
+    cursor: progress;
   }
 `;
 
@@ -721,7 +910,7 @@ const GreenBtn = styled.div`
   }
 `;
 
-const WhiteBtn = styled.div`
+const WhiteBtn = styled.button`
   background: white;
   border-radius: 30px;
   border: none;
@@ -738,6 +927,11 @@ const WhiteBtn = styled.div`
 
   &:hover {
     opacity: 0.76;
+  }
+
+  &:disabled {
+    opacity: 0.86;
+    cursor: progress;
   }
 `;
 
@@ -802,5 +996,104 @@ const Answer = styled.div`
     to {
       opacity: 1;
     }
+  }
+`;
+
+const ContactSection = styled.div`
+  background-color: ${colors.grey100};
+  background-image: url(${footerBG});
+  padding-bottom: 100px;
+  background-repeat: no-repeat;
+  background-size: 600px;
+  background-position: bottom right;
+`;
+
+const ContactContainer = styled.div`
+  background-color: ${colors.infoMain};
+  box-shadow: 0px 1px 14px rgba(0, 0, 0, 0.12);
+  border-radius: 24px;
+  border: 4px solid white;
+  max-width: 900px;
+  margin: auto;
+  width: 100%;
+  padding: 50px 15px;
+`;
+
+const ContactInner = styled.div`
+  max-width: 720px;
+  margin: auto;
+  width: 100%;
+
+  & h5 {
+    color: white;
+    margin-bottom: 40px;
+  }
+`;
+
+const FormRow = styled.div`
+  display: flex;
+  align-items: flex-start;
+`;
+
+const ContactBtnContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+`;
+
+const FormCol = styled.div`
+  width: 100%;
+  &:first-child {
+    margin-right: 15px;
+  }
+  &:last-child {
+    margin-left: 15px;
+  }
+`;
+
+const InputContainer = styled.div`
+  width: 100%;
+  margin-bottom: 25px;
+
+  & label {
+    font-size: 12px;
+    line-height: 12px;
+    letter-spacing: 0.15px;
+    color: white;
+    width: 100%;
+    cursor: pointer;
+    margin-bottom: 4px;
+  }
+  & input,
+  & textarea {
+    width: 100%;
+    background: none;
+    box-shadow: none !important;
+    outline: none !important;
+    border: none;
+    border-bottom: 2px solid rgba(225, 225, 225, 0.42);
+    color: white;
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: 0.15px;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+
+    &:focus {
+      border-bottom-color: rgba(225, 225, 225, 0.78);
+    }
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      -webkit-text-fill-color: white;
+      box-shadow: 0 0 0px 1000px transparent inset;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+  }
+
+  & textarea {
+    height: 113px;
+    resize: none;
+    line-height: 20px;
   }
 `;

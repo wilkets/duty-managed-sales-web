@@ -58,3 +58,53 @@ body h6 {
   line-height: 32px;
   letter-spacing: 0.15px;
 }
+
+button.swal2-confirm.btn-custom {
+  border: none;
+  background-color: #0091ea;
+  height: 42px;
+  border-radius: 30px;
+  outline: none !important;
+  box-shadow: none !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 130px;
+  padding-left: 12px;
+  padding-right: 12px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  filter: drop-shadow(0px 1px 14px rgba(0, 0, 0, 0.1));
+  margin: 0 auto 15px;
+}
+
+button.swal2-confirm.btn-custom:hover {
+  opacity: 0.8;
+}
+
+h2.swal2-title {
+  padding-top: 0;
+}
+div.swal2-html-container {
+  margin-top: 0;
+  margin-bottom: 15px;
+  white-space: break-spaces;
+  font-size: 17px;
+  line-height: 25px;
+  color: rgba(97, 97, 97, 0.9);
+}
+
+input:disabled,
+textarea:disabled {
+  opacity: 0.86;
+  cursor: progress;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #01579b;
+  box-shadow: 0 0 0px 1000px transparent inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
