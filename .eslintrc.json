@@ -1,0 +1,60 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "prettier",
+    "airbnb"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["react"],
+  "rules": {
+    "prettier/prettier": "off",
+    "no-unused-vars": "warn",
+    "no-console": "off",
+    "func-names": "off",
+    "no-process-exit": "off",
+    "object-shorthand": "off",
+    "class-methods-use-this": "off",
+    "semi": ["error", "always"],
+    "quotes": ["error", "single"],
+    "arrow-body-style": ["error", "as-needed"],
+    "react/jsx-filename-extension": [
+      1,
+      { "extensions": [".js", ".jsx", ".json"] }
+    ],
+    "import/no-unresolved": "off",
+    "react/jsx-closing-bracket-location": ["off"],
+    "no-trailing-spaces": "error",
+    "import/extensions": "off",
+    "comma-dangle": "off",
+    "react/jsx-props-no-spreading": "off",
+    "operator-linebreak": "off",
+    "consistent-return": "off",
+    "no-prototype-builtins": "off",
+    "no-return-assign": "off",
+    "react/prop-types": "off",
+    "react/button-has-type": "off",
+    "react/no-array-index-key": "off",
+    "react/jsx-boolean-value": "off",
+    "no-confusing-arrow": "off",
+    "implicit-arrow-linebreak": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "object-curly-newline": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-noninteractive-element-interactions": "off",
+    "prefer-promise-reject-errors": "off",
+    "no-plusplus": "off",
+    "react/jsx-indent": "off",
+    "indent": "off"
+  }
+}
