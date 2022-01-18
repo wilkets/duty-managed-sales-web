@@ -55,6 +55,7 @@
     "prefer-promise-reject-errors": "off",
     "no-plusplus": "off",
     "react/jsx-indent": "off",
-    "indent": "off"
+    "indent": "off",
+    "jsx-a11y/label-has-associated-control": "off"
   }
 }
