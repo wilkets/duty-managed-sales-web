@@ -123,6 +123,7 @@ const NaviLink = styled(NavLink)`
   text-decoration: none;
   &.signup {
     margin-left: 15px !important;
+    margin-right: 0 !important;
   }
 
   &:hover {

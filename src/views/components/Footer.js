@@ -3,6 +3,9 @@ import { Container } from 'reactstrap';
 import styled from 'styled-components';
 import colors from 'config/colors';
 import mainLogo from 'assets/images/logo.png';
+import fbIcon from 'assets/images/facebook.svg';
+import linkedinIcon from 'assets/images/linkedin.svg';
+import instaIcon from 'assets/images/instagram.svg';
 
 export default () => {
   const currentYear = new Date().getFullYear();
@@ -18,9 +21,29 @@ export default () => {
               accusantium
             </p>
           </Footer1>
-          <Footer2>Sample</Footer2>
-          <Footer3>Sample</Footer3>
-          <Footer4>Sample</Footer4>
+          <Footer2>
+            <h4>Important Links</h4>
+            <a href="/#">Terms &amp; Conditions</a>
+            <a href="/#">Privacy Policy</a>
+            <a href="/#">FAQ</a>
+          </Footer2>
+          <Footer3>
+            <h4>Contact Us </h4>
+            <p>Auckland, New Zealand</p>
+            <p>info@dutymanaged.com</p>
+            <p>+6326565565</p>
+          </Footer3>
+          <Footer4>
+            <a href="/#">
+              <img src={fbIcon} alt="" />
+            </a>
+            <a href="/#">
+              <img src={linkedinIcon} alt="" />
+            </a>
+            <a href="/#">
+              <img src={instaIcon} alt="" />
+            </a>
+          </Footer4>
         </FooterTop>
       </Container>
       <FooterBottom>
@@ -57,6 +80,36 @@ const FooterTop = styled.div`
   padding-top: 70px;
   padding-bottom: 40px;
   width: 100%;
+
+  & h4 {
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 20px;
+    color: ${colors.btnPrimary};
+    margin-bottom: 12px;
+  }
+
+  & a {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    color: ${colors.textPrimary};
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+
+    &:hover {
+      color: ${colors.btnPrimary};
+    }
+  }
+
+  & p {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    color: ${colors.textPrimary};
+    margin-bottom: 10px;
+  }
 `;
 
 const Footer1 = styled.div`
@@ -80,17 +133,29 @@ const Footer1 = styled.div`
 
 const Footer2 = styled.div`
   max-width: 160px;
+  margin-top: 15px;
   width: 100%;
 `;
 
 const Footer3 = styled.div`
-  max-width: 150px;
+  max-width: 170px;
+  margin-top: 15px;
   width: 100%;
 `;
 
 const Footer4 = styled.div`
   max-width: 160px;
+  margin-top: 15px;
   width: 100%;
+
+  & a {
+    display: inline;
+    margin-right: 10px;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
 `;
 
 const FooterBottom = styled.div`

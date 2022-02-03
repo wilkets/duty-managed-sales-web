@@ -14,7 +14,6 @@ import featureImg from 'assets/images/feature-img.png';
 import star from 'assets/images/star.png';
 import freetrialBG from 'assets/images/freetrial-bg.png';
 import contactBG from 'assets/images/contact-bg.png';
-import { cloneDeep } from 'lodash';
 import Swal from 'sweetalert2';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -23,7 +22,6 @@ emailjs.init('user_b2xRxLSUW6uT0UYDtFmIA');
 
 export default () => {
   const [testiSelected, setTestiSelected] = useState(testimonies[0]);
-  const [faqsList, setFaqsList] = useState([]);
   const defaultContact = {
     name: '',
     email: '',
