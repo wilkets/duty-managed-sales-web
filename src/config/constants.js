@@ -1,55 +1,38 @@
-import iconColab from 'assets/images/ic_colab.png';
-import iconEco from 'assets/images/ic_eco.png';
-import iconSave from 'assets/images/ic_save.png';
+import testi1 from 'assets/images/testi1.png';
+import testi2 from 'assets/images/testi2.png';
+import testi3 from 'assets/images/testi3.png';
 
-export const features = [
+export const testimonies = [
   {
-    icon: iconColab,
-    title: 'Collaboration',
-    shortDesc: 'Help other businesses whilst helping yourself!',
+    id: 1,
+    icon: testi1,
+    name: 'John Doe',
+    company: 'Company, Director',
+    title: 'This has been such a helpful tool for us!',
+    stars: 5,
     fullDesc:
-        'Equipment imbalances are more common now than ever, thanks to industry disruptors such as Covid-19 and the associated supply & demand challenges. Stacking your empty import containers will authorise an exporter to collect the empty directly from your yard when you have finished with it, so it can be re-loaded for export.',
+      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.\n\nSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiamSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperia luptatem accusantium doloremque laudantium, totam rem aperiam',
   },
   {
-    icon: iconEco,
-    title: 'Environmental Savings',
-    shortDesc: 'GHG emission reductions and reduced congestion!',
+    id: 2,
+    icon: testi2,
+    name: 'John Dont',
+    company: 'Company, Director',
+    title: 'Very cool!',
+    stars: 5,
     fullDesc:
-        'Every time a stacked container is re-used through The VirtualStack® one entire transport leg is removed from a supply chain. Because containers are prioritised by proximity, the distance travelled for the empty leg will often also be reduced. Fewer trips means less heavy goods vehicle trips, which means significant CO² emission reductions and less road congestion.',
+      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.\n\nSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laurror sit voluptatem accusantium doloremque laudantium, totam rem aperia luptatem accusantium doloremque laudantium, totam rem aperiam',
   },
   {
-    icon: iconSave,
-    title: 'Financial Savings',
-    shortDesc: 'Entire transport legs made redundant!',
+    id: 3,
+    icon: testi3,
+    name: 'John Doesnt',
+    company: 'Company, Director',
+    title: 'Awesome tool guys!',
+    stars: 4,
     fullDesc:
-        'Every stacked import empty re-used by an exporter removes an empty de-hire transport leg. Two-way cart turns into One-way cart, reducing traditional trucking trip costs significantly. Empty yard booking fees are also avoided.',
+      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dole natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.\n\nSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiamSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperia luptatem accusantium doloremque laudantium, totam rem aperiam',
   },
 ];
 
-export const faqs = [
-  {
-    question: 'Is there any cost or obligation if I request a container?',
-    answer: 'Answer to this question... Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.',
-    isOpen: true,
-  },
-  {
-    question: 'What do I do if I receive a container that is damaged?',
-    answer: 'Answer to this question... Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.',
-    isOpen: false
-  },
-  {
-    question: 'What types of containers can I request?',
-    answer: 'Answer to this question... Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.',
-    isOpen: false
-  },
-  {
-    question: 'How is The VirtualStack® any different from a hire depot?',
-    answer: 'Answer to this question... Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.',
-    isOpen: false
-  },
-  {
-    question: 'What protections are in place so I don\'t incure import detention?',
-    answer: 'Answer to this question... Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.',
-    isOpen: false
-  },
-];
+export const sample = '';

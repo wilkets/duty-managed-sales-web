@@ -4,9 +4,8 @@ import colors from './colors';
 export const ButtonLargeText = styled.div`
   color: ${({ color }) => color || colors.textPrimary};
   font-weight: 600;
-  font-size: 15px;
-  line-height: 26px;
-  letter-spacing: 0.5px;
+  font-size: 16px;
+  line-height: 22px;
 `;
 
 export const ButtonMedText = styled.div`

@@ -2,6 +2,7 @@ import React from 'react';
 import { Container } from 'reactstrap';
 import styled from 'styled-components';
 import colors from 'config/colors';
+import mainLogo from 'assets/images/logo.png';
 
 export default () => {
   const currentYear = new Date().getFullYear();
@@ -9,27 +10,37 @@ export default () => {
   return (
     <FooterContainer>
       <Container>
-        <FooterText>
-          &copy;{currentYear} VIRTUAL FREIGHT TECHNOLOGIES. all rights reserved.
-          web app development by{' '}
-          <a href="https://www.orchid.co.nz/" target="_blank" rel="noreferrer">
-            orchid
-          </a>
-          .
-        </FooterText>
-        <FooterText className="right-side">
-          <a href="/#contact_form">Contact</a>
-          <a href="/privacy">Privacy</a>
-          <a href="/terms-conditions">Terms &amp; Conditions</a>
-        </FooterText>
+        <FooterTop>
+          <Footer1>
+            <img src={mainLogo} alt="" />
+            <p>
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+              accusantium
+            </p>
+          </Footer1>
+          <Footer2>Sample</Footer2>
+          <Footer3>Sample</Footer3>
+          <Footer4>Sample</Footer4>
+        </FooterTop>
       </Container>
+      <FooterBottom>
+        <Container>
+          <FooterText>Copyright {currentYear}</FooterText>
+          <FooterText className="right-side">
+            Designed by{' '}
+            <a href="https://www.orchid.co.nz" target="_blank" rel="noreferrer">
+              Orchid
+            </a>
+          </FooterText>
+        </Container>
+      </FooterBottom>
     </FooterContainer>
   );
 };
 
 const FooterContainer = styled.div`
   background-color: white;
-  height: 50px;
+  box-shadow: 3px 1px 57px rgba(0, 0, 0, 0.07);
 
   & .container {
     display: flex;
@@ -39,26 +50,68 @@ const FooterContainer = styled.div`
   }
 `;
 
+const FooterTop = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: 70px;
+  padding-bottom: 40px;
+  width: 100%;
+`;
+
+const Footer1 = styled.div`
+  width: 40%;
+
+  & img {
+    height: 48px;
+    width: auto;
+  }
+
+  p {
+    width: 100%;
+    max-width: 242px;
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 26px;
+    color: ${colors.textPrimary};
+  }
+`;
+
+const Footer2 = styled.div`
+  max-width: 160px;
+  width: 100%;
+`;
+
+const Footer3 = styled.div`
+  max-width: 150px;
+  width: 100%;
+`;
+
+const Footer4 = styled.div`
+  max-width: 160px;
+  width: 100%;
+`;
+
+const FooterBottom = styled.div`
+  height: 70px;
+`;
+
 const FooterText = styled.p`
-  font-size: 10px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  font-weight: 600;
   line-height: 16px;
   margin: 0;
-  color: ${colors.textSecondary};
+  color: ${colors.textPrimary};
 
   & a {
-    color: ${colors.infoMain};
+    font-weight: 600;
+    color: ${colors.textPrimary};
     text-decoration: none !important;
 
     &:hover {
-      border-bottom: 1px solid;
-    }
-  }
-
-  &.right-side {
-    & a {
-      margin: 0 12px;
+      color: ${colors.btnPrimary};
     }
   }
 `;
