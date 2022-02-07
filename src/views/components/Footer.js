@@ -81,6 +81,10 @@ const FooterTop = styled.div`
   padding-bottom: 40px;
   width: 100%;
 
+  @media (max-width: 767px) {
+    flex-direction: column;
+  }
+
   & h4 {
     font-weight: bold;
     font-size: 14px;
@@ -115,6 +119,10 @@ const FooterTop = styled.div`
 const Footer1 = styled.div`
   width: 40%;
 
+  @media (max-width: 767px) {
+    margin-bottom: 10px;
+  }
+
   & img {
     height: 48px;
     width: auto;
@@ -135,18 +143,30 @@ const Footer2 = styled.div`
   max-width: 160px;
   margin-top: 15px;
   width: 100%;
+
+  @media (max-width: 767px) {
+    margin-bottom: 10px;
+  }
 `;
 
 const Footer3 = styled.div`
   max-width: 170px;
   margin-top: 15px;
   width: 100%;
+
+  @media (max-width: 767px) {
+    margin-bottom: 10px;
+  }
 `;
 
 const Footer4 = styled.div`
   max-width: 160px;
   margin-top: 15px;
   width: 100%;
+
+  @media (max-width: 767px) {
+    margin-bottom: 10px;
+  }
 
   & a {
     display: inline;
