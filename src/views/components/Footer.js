@@ -17,21 +17,24 @@ export default () => {
           <Footer1>
             <img src={mainLogo} alt="" />
             <p>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium
+              We keep you on top of your liquor licence staff and training requirements.
             </p>
           </Footer1>
           <Footer2>
             <h4>Important Links</h4>
-            <a href="/#">Terms &amp; Conditions</a>
-            <a href="/#">Privacy Policy</a>
-            <a href="/#">FAQ</a>
+            <a href="/terms-conditions">Terms &amp; Conditions</a>
+            <a href="/privacy-policy">Privacy Policy</a>
+            <a href="/faq">FAQ</a>
           </Footer2>
           <Footer3>
             <h4>Contact Us </h4>
             <p>Auckland, New Zealand</p>
-            <p>info@dutymanaged.com</p>
-            <p>+6326565565</p>
+            <a href="mailTo:info@dutymanaged.co.nz" target="_blank" rel="noreferrer">
+              info@dutymanaged.co.nz
+            </a>
+            <a href="tel:+64 27 202 7778" target="_blank" rel="noreferrer">
+              +64 27 202 7778
+            </a>
           </Footer3>
           <Footer4>
             <a href="/#">

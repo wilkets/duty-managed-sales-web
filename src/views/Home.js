@@ -10,7 +10,7 @@ import serviceImg1 from 'assets/images/service1.png';
 import serviceImg2 from 'assets/images/service2.png';
 import serviceImg3 from 'assets/images/service3.png';
 import featuresBG from 'assets/images/feature-bg.png';
-import featureImg from 'assets/images/feature-img.png';
+import featureImg from 'assets/images/featureimg.png';
 import star from 'assets/images/star.png';
 import freetrialBG from 'assets/images/freetrialbg.svg';
 import contactBG from 'assets/images/contact-bg.png';
@@ -117,10 +117,11 @@ export default () => {
       <HeroContainer>
         <HeroSection>
           <TaglineContainer>
-            <MainTag>Lorem ipsum dolor sit</MainTag>
+            <MainTag>Liquor licencing requirements made simple</MainTag>
             <SubTag>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam
+              Duty Managed removes the need for keeping paper based records and helps bar
+              owners &amp; managers to keep on top of liquor licencing notifications and
+              training requirements.
             </SubTag>
             <MainBtn>Start your free trial</MainBtn>
           </TaglineContainer>
@@ -131,41 +132,45 @@ export default () => {
       <Container id="features">
         <ServiceSection>
           <TagHeading>Benefits</TagHeading>
-          <ServiceHeading>Lorem ipsum dolor sit</ServiceHeading>
+          <ServiceHeading>
+            Keep your Training and Certification records one click away
+          </ServiceHeading>
           <ServiceDesc>
             <SubTag>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam
+              With DutyManaged you can rest easy knowing your liquor licence
+              training and paperwork is always up to date.
             </SubTag>
           </ServiceDesc>
           <Row>
             <Col md="4">
               <ServiceItem>
                 <ServiceImg src={serviceImg1} alt="" />
-                <ServiceTitle>Service # 1</ServiceTitle>
+                <ServiceTitle>Digital Certified Managers Register</ServiceTitle>
                 <ServiceItemDesc>
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                  accusa
+                  Throw away the paper version, our digital certified managers register
+                  is always up to date. The dashboard alerts keep you accountable and
+                  notified of any licences that are coming up for renewal.
                 </ServiceItemDesc>
               </ServiceItem>
             </Col>
             <Col md="4">
               <ServiceItem>
                 <ServiceImg src={serviceImg2} alt="" />
-                <ServiceTitle>Service # 2</ServiceTitle>
+                <ServiceTitle>Training log</ServiceTitle>
                 <ServiceItemDesc>
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                  accusa
+                  Easily log and upload records and attendees of all training sessions.
+                  Records of training are can easily be printed to attach with licence
+                  renewals or applications.
                 </ServiceItemDesc>
               </ServiceItem>
             </Col>
             <Col md="4">
               <ServiceItem>
                 <ServiceImg src={serviceImg3} alt="" />
-                <ServiceTitle>Service # 3</ServiceTitle>
+                <ServiceTitle>Business and Staff Member profiles</ServiceTitle>
                 <ServiceItemDesc>
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                  accusa
+                  Keep all of your business details and staff members in the one
+                  easy to access place.
                 </ServiceItemDesc>
               </ServiceItem>
             </Col>
@@ -177,21 +182,21 @@ export default () => {
         <Container>
           <FeaturesRow>
             <FeatureCol1>
-              <FeatureTitle>Lorem ipsum dolor sit </FeatureTitle>
+              <FeatureTitle>Everything in one place</FeatureTitle>
               <SubTag>
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque laudantium, totam rem aperiam
+                All your required paperwork and historical training records will
+                be stored securely in one central place.
               </SubTag>
               <FeatList>
-                <FeatHeading>Title # 1</FeatHeading>
+                <FeatHeading>Full visibility across all your staff</FeatHeading>
                 <FeatDesc>
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                  accusantium
+                  Easily see when a staff member is overdue for training or where
+                  a Duty Manager&apos;s certificate is overdue
                 </FeatDesc>
-                <FeatHeading>Title # 2</FeatHeading>
+                <FeatHeading>Keep track of all types of training</FeatHeading>
                 <FeatDesc>
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                  accusantium
+                  DutyManaged will keep tracking of your Liquor Licence training,
+                  Health &amp;Safety training, Customer Service training and more!
                 </FeatDesc>
               </FeatList>
             </FeatureCol1>
@@ -202,7 +207,7 @@ export default () => {
         </Container>
       </FeaturesSection>
 
-      <TestimonialSection>
+      {/* <TestimonialSection>
         <Container>
           <TagHeading>Testimonials</TagHeading>
           <TestiContainer>
@@ -229,15 +234,15 @@ export default () => {
             </TestimonialFull>
           </TestiContainer>
         </Container>
-      </TestimonialSection>
+      </TestimonialSection> */}
 
       <Container>
         <FreeTrialSection>
           <FreeTrialCol1>
-            <h2>Sed ut perspiciatis unde omnis</h2>
+            <h2>Get your liquor licencing requirements sorted</h2>
             <SubTag>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam
+              Keep your business on track with all its required training.
+              Start a free DutyManaged trial today!
             </SubTag>
           </FreeTrialCol1>
           <MainBtn>Start your free trial</MainBtn>
@@ -248,7 +253,7 @@ export default () => {
         <ContactContainer>
           <ContactInner>
             <TagHeading>Enquire</TagHeading>
-            <h5>Have new question?</h5>
+            <h5>Have a question? Drop us a line.</h5>
             <FormRow>
               <FormCol>
                 <InputContainer>
@@ -335,9 +340,9 @@ const TaglineContainer = styled.div`
 const HeroIMG = styled.img`
   width: auto;
   margin-left: auto;
+  max-width: 740px;
 
   @media (max-width: 1399px) {
-    max-width: 740px;
     position: relative;
     right: -50px;
   }
@@ -358,8 +363,8 @@ const HeroIMG = styled.img`
 
 const MainTag = styled.h1`
   font-weight: bold;
-  font-size: 76px;
-  line-height: 111.68%;
+  font-size: 65px;
+  line-height: 70px;
   color: ${colors.btnPrimary};
   width: 100%;
 
@@ -546,18 +551,19 @@ const ServiceItem = styled.div`
   box-shadow: 3px 17px 57px rgba(0, 0, 0, 0.08);
   border-radius: 23px;
   max-width: 350px;
-  padding: 60px 30px;
+  padding: 60px 30px 35px;
   text-align: left;
   position: relative;
   margin: 50px auto;
+  aspect-ratio: 1/0.9;
 `;
 
 const ServiceTitle = styled.div`
   color: ${colors.btnPrimary};
-  margin-bottom: 4px;
   font-weight: 600;
   font-size: 22px;
-  line-height: 177.18%;
+  line-height: 1.3;
+  margin-bottom: 15px;
 `;
 
 const ServiceItemDesc = styled.div`
@@ -614,6 +620,10 @@ const FeatureCol2 = styled.div`
   margin: auto;
   margin-top: 150px;
   margin-right: -20px;
+
+  & img {
+    max-width: 593px;
+  }
 
   @media (max-width: 991px) {
     margin-top: 30px;
